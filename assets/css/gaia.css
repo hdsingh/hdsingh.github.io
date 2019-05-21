@@ -75,7 +75,7 @@ h6 a,
   padding: 30px 0;
 }
 .content-blog p {
-  font-size: 18px;
+  font-size: 24px;
   margin-bottom: 30px;
 }
 
@@ -109,10 +109,12 @@ h5 {
 }
 
 p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6em;
   font-weight: 400;
   margin: 0 0 .75em;
+  text-align:justify;
+  text-justify:auto;
 }
 
 p,
@@ -256,7 +258,7 @@ a:hover {
 }
 
 p.description {
-  font-size: 16px;
+  font-size: 18px;
   color: #777777;
 }
 
@@ -1559,7 +1561,7 @@ a.carousel-control span.fa {
 }
 .navbar .navbar-nav.navbar-uppercase > li > a {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 0px;
   font-weight: 600;
   text-transform: uppercase;
@@ -2467,7 +2469,7 @@ a.carousel-control span.fa {
 .section-header h5,
 .section-header-blog h5,
 .section-presentation-page h5 {
-  font-size: 1.3em;
+  font-size: 1.8em;
   margin: 0 auto .5em;
   line-height: 1.5;
   letter-spacing: 0.125;
