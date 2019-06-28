@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/letter_h1.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/letter_h1.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>XrViz: An interactive visualisation interface for Xarrays | Hdsingh</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/gaia.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="home.html" class="navbar-brand">
+                    HdSingh
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        <a href="home.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="blog-posts.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+
+    <div class="section section-header-blog">
+        <div class="parallax filter filter-color-black">
+            <div class="image"
+                style="background-image:url('../assets/img/bokeh_plot_2.png')">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <h1>XrViz: An interactive visualisation interface for Xarrays</h1>
+                    <!-- <h3 class="subtitle">Find only the best stories from our famous writers.</h3> -->
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-blog">
+                        <p>
+                            <b><a href="https://github.com/intake/xrviz">XrViz</a></b> is an interactive, in browser
+                            visualisation interface for Xarrays backed by the full power of the Python
+                            ecosystem. It allows controlled data points selection, massive rendering, data
+                            display, custom interaction and selection of fields for plotting in the browser
+                            using <a href="https://intake.readthedocs.io/en/latest/">Intake</a>,
+                            <a href="http://xarray.pydata.org/en/stable/">Xarray</a> and <a href="https://pyviz.org/">Pyviz</a>
+                            collection of tools. It holds the promise of saving Earth Science and other
+                            researchers significant amounts of time since they can directly focus on visual
+                            data analysis and research rather than writing custom code to explore data.
+                        </p>
+                        <p><a href="https://github.com/intake/xrviz">Here</a> is the project repository.</p>
+
+                        <p><b>As of now it has 3 panels:</b></p>
+                        <h3> 1. Set Coordinates</h3>
+                            <p><img src="https://cdn-images-1.medium.com/max/1200/1*Pv_8SDXSJfQZt_5NpMqhXw.png" alt="" /></p>
+                            <p>This panel allows the user to set/reset the coordinates.</p>
+                        <h3>2. Variables Panel</h3>
+                            <p><img src="https://cdn-images-1.medium.com/max/1200/1*6IJDe40_uNHeYSjRQvmFTA.png" alt="" /></p>
+                            <p>This panel allows the user to select a variable for plotting and have a look at
+                            its properties or attributes.</p>
+                        <h3>3. Axes Selection Panel</h3>
+                            <p><img src="https://cdn-images-1.medium.com/max/1200/1*_imfONkxU8jI5YgCQkDI8Q.png" alt="" /></p>
+                            <p>This panel allows the user to select the axis along which to create a plot. It
+                            also allows to select aggregations to apply to remaining dimensions. In case you
+                            do not need to apply any aggregation, you can create a Selector or Animation
+                            widget for a dimension.
+                            </p>
+                        
+                        <h2>Upcoming features</h2>
+                            <p>These are some of the upcoming features:
+                            <p><a href="https://github.com/intake/xrviz/pull/13">1. Style Panel</a></p>
+                            <p><a href="https://github.com/intake/xrviz/pull/14">2. Projection Panel</a></p>
+                            <p><a href="https://github.com/intake/intake-gsoc-gui/issues/24">3. Series extraction feature</a></p>
+                                </ol>
+                            </p>
+
+                        <h2>Advantages</h2>
+
+
+
+                        <p>1. This interface is built in Python which has become one of the most pervasive
+                        programming languages in the scientific community. Hence this interface could be
+                        easily extended by the researchers.
+                        </p>
+
+                        <p>2. It is being developed in open source, so anyone can share their ideas,
+                        contribute to the code or request new features. Open source environment will
+                        also ensure that the interface keeps becoming better, stronger, well tested with
+                        time as community uses it.
+                        </p>
+
+                        <p>3. It will have the capability to handle large scale datasets and data stored on
+                        cloud. Parallel computation and memory management could be taken care of by
+                        using it in conjunction with tools like <a href="https://dask.org/">Dask</a>.
+                        </p>
+
+                        <p>4. Better user interface and much more functionality as compared to other such
+                        tools (<a href="http://meteora.ucsd.edu/~pierce/ncview_home_page.html">Ncview</a>,
+                        <a href="https://www.giss.nasa.gov/tools/panoply/">Panoply</a>,
+                        <a href="https://www.unidata.ucar.edu/software/thredds/current/tds/reference/GodivaUsersGuide.html">Godiva</a>).
+                        </p>
+                        <p>5. It could be easily extended to have domain specific functionality, such as for
+                        astronomy or oceanography.
+                        </p>
+
+                        <h2>Dashboard</h2>
+                        <p>To use the interface install Xrviz using:
+                            <pre><code><br>conda install -c conda-forge xrviz
+                            <br>pip install git+https://github.com/intake/xrviz --no-deps
+                            </code></pre>
+                        </p>
+                        <p>Then run 
+                            <pre><code>import xarray as xr 
+                                    <br>import xrviz
+                                    <br>from xrviz.dashboard import Dashboard
+                                    <br>
+                                    <br>ds = xrviz.sample_data.great_lakes<br>
+                                    <br>dash = Dashboard(ds)
+                                    <br>dash.show()
+                                </code>
+                            </pre>
+                        <p>the following script:</p> 
+                        </p>
+                        <p>This is how the interface looks:</p>
+                        <p><img src="https://cdn-images-1.medium.com/max/1200/1*Zb03LLjVTiJawnn8CsGL3Q.gif" alt="" />
+                        </p>
+                        <br>
+
+                        <p>I am working on this project in <a href="https://summerofcode.withgoogle.com/projects/#4825250494152704">Google Summer of
+                        Code</a> under the
+                        organisation <a href="https://www.esipfed.org/">Earth Science Information Partners
+                        (ESIP)</a>, under member organisation <a href="https://www.usgs.gov/">US Geological
+                        Survey</a>. My mentors for this project are <a href="https://github.com/rsignell-usgs">Rich
+                        Signell</a>, a research oceanographer at the US
+                        Geological Survey in Woods Hole and <a href="https://github.com/martindurant">Martin
+                        Durant</a>, a data scientist and software engineer
+                        at Anaconda, inc.
+                        </p>
+                        <h2 id="Discussions" data-line="96">Discussions</h2>
+                        <p>Please stay tuned with the <a href="https://github.com/intake/intake-gsoc-gui/blob/master/Report%20for%20GSOC%202019.md">weekly progress
+                            reports</a>. If you have any ideas or questions regarding this project please feel
+                        free to discuss in our <a href="https://gitter.im/ESIP_GUI/community">Gitter channel</a> or <a href="https://hdsingh.github.io/pages/home.html#contact">reach me directly</a>.
+                        </p>   
+                    </div>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer footer-big footer-color-black" data-color="black">
+        <div class="container">
+            <div class="copyright">
+                 © <script> document.write(new Date().getFullYear()) </script> 
+                 Developed in <i class="fa fa-heart"></i> with <i class="fa fa-code"></i>, <i class="fa fa-coffee"></i> and Creative Tim.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<!--   core js files    -->
+<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  js library for devices recognition -->
+<script type="text/javascript" src="../assets/js/modernizr.js"></script>
+
+<!--  script for google maps   -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+<script type="text/javascript" src="../assets/js/gaia.js"></script>
+
+
+</html>
