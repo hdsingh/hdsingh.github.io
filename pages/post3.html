@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/letter_h1.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/letter_h1.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Sigslot — A simple signalling mechanism for Panel | Hdsingh</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/gaia.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="home.html" class="navbar-brand">
+                    HdSingh
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        <a href="home.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="blog-posts.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+
+    <div class="section section-header-blog">
+        <div class="parallax filter filter-color-black">
+            <div class="image"
+                style="background-image:url('../assets/img/panel1.png')">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <h1>Sigslot — A simple signalling mechanism for Panel</h1>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-blog">
+                            <p ><em>This is a joint blog post by me and <a href="https://github.com/martindurant">Martin Durant</a>.</em></p>
+                            <p >Panel is an open-source python library that lets you create custom interactive web apps and dashboards by connecting user-defined widgets to plots, images, tables, or text. It is a high-level app and dashboarding solution for python.</p>
+                            <p >Panel supports the <a href="https://panel.pyviz.org/user_guide/">following ways</a> to send messages between visual elements:</p>
+                            <ul>
+                            <li >
+                            <p ><strong>Interact:</strong> given a function, auto generate widgets for its inputs, and execute on any change</p>
+                            </li>
+                            <li >
+                            <p ><strong>Reactive:</strong> declaratively link functions by specifying which widget values they depend on</p>
+                            </li>
+                            <li >
+                            <p ><strong>Parameterized class:</strong> declare the types and validation for the attributes of a class, and automatically create widgets which then activate methods upon change (see <a href="https://param.pyviz.org/">param</a>)</p>
+                            </li>
+                            <li >
+                            <p ><strong>Widget linking:</strong> have values propagated from one widget to another, with optional validation</p>
+                            </li>
+                            <li >
+                            <p ><strong>JS linking:</strong> propagate values, but in pure JavaScript, avoiding invoking python (so this can work without a kernel)</p>
+                            </li>
+                            <li >
+                            <p ><strong>Watch:</strong> assign arbitrary callback functions to any change of a property of any widget. This is by far the most general and low-level method, but also unstructured and therefore complex: a fully-functioning interface might have many such callbacks defined.</p>
+                            </li>
+                            </ul>
+                            <p >Besides having several ways to link widget with a callback, users still need something to handle much more complexity with ease. So cheers, since <a href="https://github.com/intake/xrviz/blob/master/xrviz/sigslot.py">Sigslot</a> is here to fulfil this need!</p>
+                            <p >Sigslot immensely removes the complexity. One simply need to register a widget with event-name and connect it to callback. It provides layering over the simple watch mechanism. It is also the base class for the different panels in <a href="https://github.com/intake/xrviz"><strong>XrViz</strong></a>: an interactive visualisation interface for <a href="http://xarray.pydata.org">xarray</a> and <a href="https://github.com/intake/dfviz"><strong>dfviz</strong></a> : an interactive interface to visualise dataframes. Both these dashboards demonstrate its capabilities in construction of complex graphical user interfaces.</p>
+                            <p ><a href="https://github.com/martindurant">Martin Durant</a> is the author of Sigslot. Here are his views:</p>
+                            <blockquote >
+                            <p >Having previously worked with desktop applications (e.g., <a href="https://docs.anaconda.com/anaconda/navigator/">Anaconda Navigator</a>), I missed a declarative, structured way to pass messages and object state between the different parts of a Panel application. XrViz and dfviz are very much like desktop applications, more so than many of the example dashboard-oriented data display examples for Panel.<br />
+                            Sometimes, you want more than to declare some data structure and set of value dependencies (although that is already very powerful). Also, it is important to hide the inner implementation of some part of the interface, and specify to users of that class, a public API that you would like them to use. In that way, you can change the implementation at any time without having to change the code that calls the class; but it also drastically reduces the cost the use the class, because users need know far fewer, well-documented things.</p>
+                            </blockquote>
+                            <p >As mentioned by <a href="https://github.com/philippjfr">Philipp Rudiger</a> <a href="https://github.com/pyviz/panel/issues/433">here</a>:</p>
+                            <blockquote >
+                            <p >The watch callbacks are the lowest level and therefore most versatile approach to defining callbacks but it is very easy to end up with a horrible amount of complexity if you define a lot of callbacks. Various GUI toolkits have solved this in different ways, Qt for example has a signalling API where you define a signal by name and then you can connect to those signals by name. This is a powerful way to group and keep track of callbacks and reduces the amount of complexity a user has to keep track of.</p>
+                            </blockquote>
+                            <p >Sigslot is a similar mechanism.</p>
+                            <script src="https://gist.github.com/hdsingh/5de5ee632b87c5bfd4ba177ffa1534b5.js"></script>
+                            <p >The following code will <em>print</em> the updated value in console however you can easily replace it with the function that you desire.</p>
+                            <script src="https://gist.github.com/hdsingh/b51e248afe3983fa3de648011f98658a.js"></script>
+                            <p >It allows us to easily associate an arbitrary number of callbacks with an event, in a known order, and declare these events to other classes rather than them having to dive into the widget and value names hidden in the implementation. It also comes with further benefits like being able to ignore events and logging. We only declare those signals which we want to expose as an external API and now one can easily change the internal widgets that make this event.</p>
+                            <h2>My experience with Sigslot</h2>
+                            <p >I have used Sigslot mechanism to design <a href="https://github.com/intake/xrviz">XrViz</a>. Each panel in its dashboard requires complex interaction between its widgets and the other panels. Sigslot has really removed the complexity which otherwise would have been induced. It lets you focus on completing the work at hand, rather than focusing and spending time on linking the widgets, since it is explicit about declaring which events are meaningful. Also it helps keep code short, simple and clear. I can say that it automates linking of widgets with callbacks. As of now, it is not present in Panel (issue is open <a href="https://github.com/pyviz/panel/issues/433">here</a>). I feel it must become a part of Panel, considering the potential it has to significantly improve the experience of users in linking widgets although you can still use it even now since it is a small piece of code. XrViz is using Sigslot mechanism for all the linking. The simple watch mechanism has not been used directly anywhere in the code.</p>
+                            <p ><strong>References:</strong></p>
+                            <ol>
+                            <li >
+                            <p ><a href="https://github.com/intake/dfviz/blob/master/dfviz/sigslot.py">dfviz/sigslot.py</a></p>
+                            </li>
+                            <li >
+                            <p >Consider introducing signalling API (<a href="https://github.com/pyviz/panel/issues/433">Issue #433 pyviz/panel</a>)</p>
+                            </li>
+                            <li >
+                            <p ><a href="http://panel.pyviz.org/user_guide/Links.html">Links — Panel documentation</a></p>
+                            </li>
+                            <li >
+                            <p ><a href="https://panel.pyviz.org/user_guide/APIs.html">APIs — Panel</a></p>
+                            </li>
+                            </ol>                    
+                        </div>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer footer-big footer-color-black" data-color="black">
+        <div class="container">
+            <div class="copyright">
+                 © <script> document.write(new Date().getFullYear()) </script> 
+                 Developed in <i class="fa fa-heart"></i> with <i class="fa fa-code"></i>, <i class="fa fa-coffee"></i> and Creative Tim.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<!--   core js files    -->
+<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  js library for devices recognition -->
+<script type="text/javascript" src="../assets/js/modernizr.js"></script>
+
+<!--  script for google maps   -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+<script type="text/javascript" src="../assets/js/gaia.js"></script>
+
+
+</html>
