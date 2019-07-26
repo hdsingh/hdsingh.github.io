@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/letter_h1.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/letter_h1.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Let’s visualise big gridded data with Intake and XrViz | Hdsingh</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../assets/css/gaia.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="home.html" class="navbar-brand">
+                    HdSingh
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        <a href="home.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="blog-posts.html">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+
+    <div class="section section-header-blog">
+        <div class="parallax filter filter-color-black">
+            <div class="image"
+                style="background-image:url('../assets/img/lake.png')">
+            </div>
+            <div class="container">
+                <div class="content">
+                    <h1>Let’s visualise big gridded data with Intake and XrViz</h1>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content-blog">
+                        <p>This post aims to share the ease of data input with Intake and interactive visualisation of xarray data with XrViz</p>
+                        <h2>Quick Overview</h2>
+                        <p >Intake is a lightweight package for finding, investigating, loading and disseminating data. It is useful for all and acts as a common platform that everyone can use to smooth the progression of data from developers and providers to users.</p>
+                        <p ><a href="https://github.com/intake/xrviz?source=post_page---------------------------">XrViz</a> is an interactive, in browser visualisation interface for Xarrays backed by the full power of the Python ecosystem. It allows controlled data points selection, massive rendering, data display, custom interaction and selection of fields for plotting in the browser using <a href="http://xarray.pydata.org/en/stable/?source=post_page---------------------------">Xarray</a> and <a href="https://pyviz.org/?source=post_page---------------------------">PyViz</a>(now <a href="https://holoviz.org/?source=post_page---------------------------">HoloViz</a>) collection of tools.</p>
+                        <h2 id="Data-Input-and-Selection" >Data Input and Selection</h2>
+                        <p>One can simply add the data catalog in the intake gui as follows :
+                            <pre><code style="font-size: 18px">import intake<br>
+                                <br>gui = intake.gui
+                                <br>gui.add(‘xarray_data.yml’)
+                                <br>gui</code>
+                        </pre>
+                        </p>
+                        <p ><img src="https://cdn-images-1.medium.com/max/2884/1*z-u8_Pw6qIR_uxUop422Og.png" style= "height: 300px" alt="Intake GUI" /></p>
+                        <p >A catalog can have several dataset sources. The selected data can be loaded using:
+                        <pre><code style="font-size: 18px">data = gui.item.to_dask()</code>
+                        </pre></p>
+                        <p >Now we can visualise and inspect data with XrViz.</p>
+                        <h2 id="XrViz-Dashboard" >XrViz Dashboard</h2>
+                        <p><pre><code style="font-size: 18px">from xrviz.dashboard import Dashboard
+                            <br>dash = Dashboard(data)
+                            <br>dash.panel
+                            </code></pre>
+                        </p>
+                        <p >This is all you need to visualise any xarray data with XrViz!</p>
+                        <p >New features added in XrViz are:</p>
+                        <h2 id="1-Style-Panel" >1. Style Panel</h2>
+                        <p ><img src="https://cdn-images-1.medium.com/max/3548/1*wXQtPZkybARwVh-9DUgn2w.png" style= "height: 400px" alt="" /></p>
+                        <p >It provides the user with options to change properties such as height , width , cmap and color_scale to customise the graph.</p>
+                        <h2 id="2-Projection-Panel" >2. Projection Panel</h2>
+                        <p ><img src="https://cdn-images-1.medium.com/max/3556/1*sGdTZePaiy5sj4Fj78nw4g.png" style= "height: 400px" alt="" /></p>
+                        <p >This panel allows the user to project the data on a map or <a href="https://scitools.org.uk/cartopy/docs/latest/crs/projections.html">Cartopy projection</a>, in case it is geographic. This will be immensely useful for Earth Science researchers in analysis of geographical data. It provides options to choose basemap , crs , projection , features and other parameter inputs to modify accordingly.</p>
+                        <h2 id="3-Series-extraction" >3. Series extraction</h2>
+                        <p ><img src="https://cdn-images-1.medium.com/max/2962/1*UFUt_MBV0gKv9BtUgzoGaQ.png" style= "height: 400px" alt="" /></p>
+                        <p >This panel allows the user to extract a series along a third dimension upon selection in fields panel. The user can click on the main 2D graphical output, and have a graph of a third dimension at that point appear in a separate, adjacent panel. Each click will produce a marker, and the line in the graph will have the same colour as that marker. Several lines can be over-plotted, and the dimension to use for the plotting will be chosen in the “fields” section of the interface. Hovering over the line shows more information about that series.</p>
+                        <h2 id="Live-Example" >Live Example</h2>
+                        <p >Please have a look at these dashboards deployed on binder.</p>
+                        <ol>
+                            <li >
+                            <p ><a href="https://aws-uswest2-binder.pangeo.io/v2/gh/hdsingh/Intake_XrViz_Dashboard/master?filepath=Dashboard.ipynb">Intake and XrViz Dashboard</a></p>
+                            </li>
+                            <li >
+                            <p ><a href="https://aws-uswest2-binder.pangeo.io/v2/gh/reproducible-notebooks/Explore-HRRR-with-XrViz/master?filepath=HRRR_dashboard.ipynb">Explore-HRRR-with-XrViz</a></p>
+                            </li>
+                        </ol>
+                        <p >This is how the interface looks now:</p>
+                        <p ><img src="https://cdn-images-1.medium.com/max/2300/1*3X9Tg9PrqXz_vgkLPtDq1A.gif" alt="" /></p>
+                        <h2 id="Discussions" >Discussions</h2>
+                        <p >If you have any ideas or questions regarding this project please feel free to discuss in our <a href="https://gitter.im/ESIP_GUI/community">Gitter channel</a> or submit a <a href="https://github.com/intake/xrviz/pulls">PR on GitHub</a>.</p>                  
+                        </div>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer footer-big footer-color-black" data-color="black">
+        <div class="container">
+            <div class="copyright">
+                 © <script> document.write(new Date().getFullYear()) </script> 
+                 Developed in <i class="fa fa-heart"></i> with <i class="fa fa-code"></i>, <i class="fa fa-coffee"></i> and Creative Tim.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<!--   core js files    -->
+<script src="../assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  js library for devices recognition -->
+<script type="text/javascript" src="../assets/js/modernizr.js"></script>
+
+<!--  script for google maps   -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+<script type="text/javascript" src="../assets/js/gaia.js"></script>
+
+
+</html>
